@@ -1,0 +1,13 @@
+{% extends 'base.njk' %}
+{% block content %}
+    <header>
+        <h1 class="title">All Awesome Recipes</h1>
+    </header>
+    <main>
+        <section class="responsive-cols">
+            {% for recipe in recipes %}
+            <a href="recipes/{{ recipe.id }}"><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-img"></a>
+            {% endfor %}
+        </section>
+    </main>
+{% endblock %}

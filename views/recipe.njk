@@ -1,0 +1,93 @@
+{% extends 'base.njk' %}
+{% block content %}
+    <header>
+            <h1 class="title">{{ details.title }}</h1>
+            <h2 class="subtitle"><strong>{{ details.subtitle }}</strong></h2>
+            <p class="center-text"><strong>Makes</strong> {{ details.make }}  <strong>Cooks In</strong> {{ details.cook_time }} <strong>Difficulty</strong> {{ details.difficulty }}</p>
+        </header>
+        <hr>
+
+        <main>
+            <section>
+                <header>
+                    <h2 class="subtitle">INGREDIENTS</h2>
+                </header>
+                <article class="responsive-cols">
+                    <img src="/{{ details.image }}" alt="{{ details.title }}" class="recipe-img">
+                    <ul>
+                        {% for ingredient in details.ingredients %}
+                        <li >{{ ingredient }}</li>
+                        {% endfor %}
+                    </ul>
+                </article>
+            </section>
+            <hr>
+    
+            <section>
+                <header>
+                    <h2 class="subtitle">METHOD</h2>
+                </header>
+                <article class="responsive-cols">
+                    <ol>
+                        {% for step in details.steps %}
+                        <li>{{ step }}</li>
+                        {% endfor %}
+                    </ol>
+                </article>
+            </section>
+            <hr>
+    
+            <section class="small-section">
+                <header>
+                    <h2 class="subtitle">User Comments</h2>
+                </header>
+                <button onclick="seeComments({{ details.id }})">See Comments</button>
+                <article id="comments-article" class="hide">
+                    <form>
+                        <fieldset>
+                            <legend>Enter a commment:</legend>
+                            <label for="comment-name"><strong>Name:</strong></label><br>
+                            <input type="text" id="author" placeholder="Enter your name here" name="author" size="53"><br>
+                            <label for="comment"><strong>Comment:</strong></label><br>
+                            <textarea name="comment" id="comment" cols="50" rows="5" placeholder="Enter your comment here...."></textarea><br>
+                            <img src="/PlusSign.jpg" alt="Submit Comment" onclick="sendComment({{ details.id }})" width="50" height="50" class="pointer">
+                        </fieldset>
+                    </form>
+                    <div id="comments">
+                    </div>
+                </article>
+            </section>
+            <hr>
+    
+            <section class="small-section">
+                <header>
+                    <h2 class="subtitle">Sign-up to recieve new recipes:</h2>
+                </header>
+                <form action="mailto:s201915730@kfupm.edu.sa">
+                    <fieldset>
+                        <legend>Personal Information</legend>
+                        <label for="signup-name"><strong>Name:</strong></label>
+                        <input type="text" id="signup-name" name="signup-name"><br><br>
+                        <label for="email"><strong>Email:</strong></label>
+                        <input type="email" id="email" name="email" placeholder="xxxx@domain.com"><br>
+                    </fieldset><br>
+                    <fieldset>
+                        <legend>Types of recipes</legend>
+                        <label for="breakfast">Breakfast</label>
+                        <input type="radio" id="breakfast" name="recipe-type" value="breakfast">
+                        <label for="lunch">Lunch</label>
+                        <input type="radio" id="lunch" name="recipe-type" value="lunch">
+                        <label for="dinner">Dinner</label>
+                        <input type="radio" id="dinner" name="recipe-type" value="dinner">
+                    </fieldset><br>
+                    <input type="submit" value="Sign Up">
+                </form>
+            </section>
+        </main>
+        <hr>
+
+        <footer class="small-section">
+            <h2 class="subtitle">LINKS</h2>
+            <a href="https://www.google.com/search?q={{ details.title }}%20recipe" target="_blank">Search for other {{ details.title }} recipes</a>
+        </footer>
+{% endblock %}

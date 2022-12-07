@@ -1,0 +1,94 @@
+:root{
+    --text-color: #a4a400;
+    --border-color: #73ad21;
+    --background-color: #f0f0f0;
+    --comment-background-color: #ffffa8;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 1024px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("silverware.jpg");
+}
+
+.title, .subtitle{
+    color: var(--text-color);
+    background-color: var(--background-color);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    text-align: center;
+    margin: 0.67em auto;
+    padding: 1em;
+}
+
+.title {
+    max-width: 40rem;
+}
+
+.subtitle {
+    font-size: 1em;
+    max-width: 20rem;
+}
+
+.small-section {
+    width: fit-content;
+    margin: auto;
+    align-self: center;
+}
+
+.center-text {
+    text-align: center;
+}
+
+ul {
+    list-style-image: url("fish_icon_24.png");
+}
+
+/* 600px and less */
+@media only screen and (max-width: 600px) {
+    .responsive-cols {
+        column-count: 1;
+    }
+}
+
+/* 600px to 992px */
+@media only screen and (min-width: 600px) {
+    .responsive-cols {
+        column-count: 2;
+    }
+}
+
+/* 992px and more */
+@media only screen and (min-width: 992px) {
+    .responsive-cols {
+        column-count: 3;
+    }
+}
+
+.responsive-cols {
+    column-rule: 2px solid var(--text-color);
+    column-gap: 0px;
+}
+
+.recipe-img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.comment-card {
+    background-color: var(--comment-background-color);
+}
+
+a {
+    display: block;
+    color: var(--text-color);
+}
+
+.hide {
+    display: none;
+}
+
+.pointer:hover {
+    cursor: pointer;
+}
